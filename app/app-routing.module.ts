@@ -5,8 +5,12 @@ import { CanActivate, RouterModule, Routes } from '@angular/router';
 /* START MY VIEWS IMPORT */
 // Do not edit this comment content, it will be overwritten in next Skaffolder generation
 import { HomeComponent} from './pages/home/home.component';
-import { ImmobileEditComponent} from './pages/immobile-edit/immobile-edit.component';
-import { ImmobileListComponent} from './pages/immobile-list/immobile-list.component';
+import { ActorEditComponent} from './pages/actor-edit/actor-edit.component';
+import { ActorListComponent} from './pages/actor-list/actor-list.component';
+import { FilmEditComponent} from './pages/film-edit/film-edit.component';
+import { FilmListComponent} from './pages/film-list/film-list.component';
+import { FilmMakerEditComponent} from './pages/film-maker-edit/film-maker-edit.component';
+import { FilmMakerListComponent} from './pages/film-maker-list/film-maker-list.component';
 
 /* END MY VIEWS IMPORT */
 
@@ -25,9 +29,13 @@ const routes: Routes = [
 
     /* START MY VIEWS */
 
+    { path: 'actors/:id',  component: ActorEditComponent , canActivate: [AuthGuard] },
+    { path: 'actors',  component: ActorListComponent , canActivate: [AuthGuard] },
+    { path: 'films/:id',  component: FilmEditComponent , canActivate: [AuthGuard] },
+    { path: 'films',  component: FilmListComponent , canActivate: [AuthGuard] },
+    { path: 'filmmakers/:id',  component: FilmMakerEditComponent , canActivate: [AuthGuard] },
+    { path: 'filmmakers',  component: FilmMakerListComponent , canActivate: [AuthGuard] },
     { path: 'home',  component: HomeComponent , canActivate: [AuthGuard] },
-    { path: 'immobiles/:id',  component: ImmobileEditComponent , canActivate: [AuthGuard] },
-    { path: 'immobiles',  component: ImmobileListComponent , canActivate: [AuthGuard] },
 
  /* END MY VIEWS */
     

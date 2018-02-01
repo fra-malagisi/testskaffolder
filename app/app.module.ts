@@ -25,14 +25,20 @@ import { LoginComponent } from './pages/login/login.component';
 /* START MY VIEWS IMPORTS*/
 // Do not edit this comment content, it will be overwritten in next Skaffolder generation
 import { HomeComponent } from './pages/home/home.component';
-import { ImmobileEditComponent } from './pages/immobile-edit/immobile-edit.component';
-import { ImmobileListComponent } from './pages/immobile-list/immobile-list.component';
+import { ActorEditComponent } from './pages/actor-edit/actor-edit.component';
+import { ActorListComponent } from './pages/actor-list/actor-list.component';
+import { FilmEditComponent } from './pages/film-edit/film-edit.component';
+import { FilmListComponent } from './pages/film-list/film-list.component';
+import { FilmMakerEditComponent } from './pages/film-maker-edit/film-maker-edit.component';
+import { FilmMakerListComponent } from './pages/film-maker-list/film-maker-list.component';
 
 /* END MY VIEWS IMPORTS*/
 
 /* START MY SERVICES IMPORTS*/
 // Do not edit this comment content, it will be overwritten in next Skaffolder generation
-import { ImmobileService } from './services/immobile.service';
+import { ActorService } from './services/actor.service';
+import { FilmService } from './services/film.service';
+import { FilmMakerService } from './services/film-maker.service';
 
 /* END MY SERVICES IMPORTS*/
 
@@ -78,8 +84,12 @@ import { MailValidator } from './directives/mail-validate.directive';
     /* START DECLARATIONS */
 // Do not edit this comment content, it will be overwritten in next Skaffolder generation
     HomeComponent,
-    ImmobileEditComponent,
-    ImmobileListComponent,
+    ActorEditComponent,
+    ActorListComponent,
+    FilmEditComponent,
+    FilmListComponent,
+    FilmMakerEditComponent,
+    FilmMakerListComponent,
  /* END DECLARATIONS */
     
     // PIPE
@@ -92,7 +102,9 @@ import { MailValidator } from './directives/mail-validate.directive';
   providers:    [
     /* START PROVIDERS */
 // Do not edit this comment content, it will be overwritten in next Skaffolder generation
-    ImmobileService,
+    ActorService,
+    FilmService,
+    FilmMakerService,
  /* END PROVIDERS */
     
     // SECURITY
