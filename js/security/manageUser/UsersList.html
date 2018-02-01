@@ -1,0 +1,89 @@
+<!-- 
+	Manage users controller for admin  
+-->
+
+<div ng-controller="UsersListController">
+	
+	<h1>Manage Users</h1>
+	
+	<!-- SEARCH FORM -->
+	<div class="well">
+		
+		<form name="form_search" class="container-fluid">
+			<div class="row">
+				<div class="col-sm-3">
+					<label for="username">Username</label>
+				</div>
+				<div class="col-sm-9 form-group" >
+					<input type="text" ng-model="search.username" class="form-control" name="username" id="username" >
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-3">
+					<label for="name">Name</label>
+				</div>
+				<div class="col-sm-9 form-group" >
+					<input type="text" ng-model="search.name" class="form-control" name="name" id="name" >
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-3">
+					<label for="surname">Surname</label>
+				</div>
+				<div class="col-sm-9 form-group" >
+					<input type="text" ng-model="search.surname" class="form-control" name="surname" id="surname" >
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-3">
+					<label for="mail">E-Mail</label>
+				</div>
+				<div class="col-sm-9 form-group" >
+					<input type="text" ng-model="search.mail" class="form-control" name="mail" id="mail" >
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-3">
+					<label for="role">Role</label>
+				</div>
+				<div class="col-sm-9 form-group" >
+					<input type="text" ng-model="search.role" class="form-control" name="role" id="role" >
+				</div>
+			</div>
+		</form>
+	</div>
+	
+	<!-- TABLE -->
+	<table class="table table-condensed table-striped table-bordered table-hover">
+		<thead>
+			<tr>
+				<th>Username</th>
+				<th>Name</th>
+				<th>Surname</th>
+				<th>E-Mail</th>
+				<th>Roles</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="user in users | filter : {'username' : search.username, 'name' : search.name, 'surname' : search.surname, 'mail' : search.mail, 'roles' : search.role }">
+				<td ng-bind="user.username" ng-link="/manage-users/{{user._id}}"></td>
+				<td ng-bind="user.name"></td>
+				<td ng-bind="user.surname"></td>
+				<td ng-bind="user.mail"></td>
+				<td>
+					<div ng-repeat="role in user.roles" class="badge mr-5">
+						{{role}}
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<div class="mb-20" ng-if="users.$resolved && (users | filter : {'username' : search.username, 'name' : search.name, 'surname' : search.surname, 'mail' : search.mail, 'roles' : search.role }).length == 0">
+		<b>No users found</b>
+	</div>
+	
+	<!-- BUTTON -->
+	<button class="btn btn-primary" ng-link="/manage-users/new">New</button>
+	
+</div>
