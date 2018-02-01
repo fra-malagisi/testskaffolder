@@ -1,0 +1,70 @@
+<!-- IMPORT MODULE DETAIL -->
+<!-- 
+
+	Module : 	ImmobileEdit
+	
+	Links : 	
+	
+	Nesteds : 	
+				
+-->
+<!-- /IMPORT MODULE DETAIL -->
+<div ng-controller="ImmobileEditController">
+	
+	<h1>
+		<span>ImmobileEdit</span>
+		{{obj.name}}
+	</h1>
+	
+	
+	
+	<div class="well">
+		<form name="easyForm" class="container-fluid mt-20">
+			<div class="row">
+				<div class="col-sm-3">
+					<label for="nome">Nome</label>
+				</div>
+				<div class="col-sm-9 form-group" ng-class="{ 'has-error' : easyForm.nome.$invalid }">
+					<input  type="text" ng-model="obj.nome"  class="form-control" name="nome" id="nome" >
+		 			
+				</div>
+			</div>
+			
+			
+			
+			
+			
+	
+			<div class="row mt-40">
+				<button ng-if="obj._id" class="btn btn-danger" data-toggle="modal" data-target="#removeModal">
+					<i class="glyphicon glyphicon-trash"></i> Remove
+				</button>
+				
+				<button type="submit" class="btn btn-primary pull-right" ng-disabled="easyForm.$invalid" ng-click="save()">Save</button>
+			    <button class="btn btn-link pull-right" ng-link="/immobiles/">Back to List</button>
+			</div>
+			<div class="clearfix"></div>
+		</form>
+		
+	</div>
+	
+	
+	<!-- MODAL REMOVE -->
+	<div class="modal fade" id="removeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="myModalLabel">Delete item</h4>
+				</div>
+				<div class="modal-body">
+					Do you want confirm delete? 
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">NO</button>
+					<button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="remove()">YES</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
