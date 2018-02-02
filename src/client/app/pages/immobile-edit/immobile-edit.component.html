@@ -1,0 +1,31 @@
+<!-- TITLE -->
+<mat-card class="mb-40">
+    <h1>Immobile Edit</h1>
+</mat-card>
+
+<mat-card>
+    <div class="card-title">
+        <mat-icon>edit</mat-icon>
+        Edit
+    </div>
+
+    <form #easyForm="ngForm" class="container-fluid">
+        
+        
+        <mat-form-field class="full-width">
+            <input matInput type="text" placeholder="Nome" [(ngModel)]="item.nome"  name="nome" id="nome" >
+        </mat-form-field>
+        
+        
+        
+        
+
+
+        <!-- BUTTON BAR -->
+        <div class="mt-40">
+            <button mat-raised-button color="primary" class="pull-right mr-5" (click)="save(easyForm.valid, item)">Save</button>
+            <button mat-raised-button class="pull-right " (click)="goBack()">Back To List</button>
+        </div>
+    </form>
+
+</mat-card>
